@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../components/Header'
 import Balance from '../components/Balance'
 import Moviments from '../components/Moviments'
+import Actions from '../components/Actions'
 
 const list = [
   {
@@ -26,6 +27,8 @@ export default function Home() {
     <View style={styles.container}>
         <Header name="Felipe Ananias"/>
         <Balance balance="120,00" expenses="-650,00"/>
+
+        <Actions/>
 
         <Text style={styles.title}>Últimas movimentações</Text>
 
