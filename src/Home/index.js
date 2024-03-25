@@ -8,16 +8,23 @@ import Actions from '../components/Actions'
 const list = [
   {
     id: 1,
-    label: 'Peças carro',
-    balance: '300,50',
-    date: '17/09/22',
+    label: 'Gasolina Moto',
+    balance: '60,00',
+    date: '25/03/24',
     type: 0
   },
   {
     id: 2,
+    label: 'Peças carro',
+    balance: '300,50',
+    date: '17/03/24',
+    type: 0
+  },
+  {
+    id: 3,
     label: 'Salario',
     balance: '2500,50',
-    date: '17/09/22',
+    date: '05/03/24',
     type: 1
   }
 ]
@@ -26,7 +33,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
         <Header name="Felipe Ananias"/>
-        <Balance balance="120,00" expenses="-650,00"/>
+        <Balance balance="2500,50" expenses="-360,50"/>
 
         <Actions/>
 

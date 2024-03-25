@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
+import {MotiView, MotiText, AnimatePresence} from 'moti'
 
 export default function Moviments({ data }) {
 
@@ -18,12 +19,32 @@ export default function Moviments({ data }) {
                     {data.label}
                 </Text>
 
-                {showBalance ? (<Text style={data.type == 1 ? styles.balance : styles.expenses}>
-                    {data.type == 1 ? `R$ ${data.balance}` : `R$ -${data.balance}`}
-                </Text>
+                {showBalance ? (
+                <AnimatePresence exitBeforeEnter>
+                    <MotiText style={data.type == 1 ? styles.balance : styles.expenses}
+                    from={{
+                        translateX: 100
+                      }}
+                      animate={{
+                        translateX: 0
+                      }}
+                      transition={{
+                        type: 'spring',
+                        duration: 1400
+                      }}
+                    >
+                        {data.type == 1 ? `R$ ${data.balance}` : `R$ -${data.balance}`}
+                    </MotiText>
+                </AnimatePresence>
                 ) : (
-                    <View style={styles.skeleton}>
-                    </View>
+                    <AnimatePresence exitBeforeEnter>
+                        <MotiView
+                            style={styles.skeleton}
+                            from={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{type: 'timing'}}
+                        ></MotiView>
+                    </AnimatePresence>
                 )}
             </View>
         </TouchableOpacity>
